@@ -2,6 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  let dateStyle = {
+    color:'cyan',
+    border: '1px solid',
+    padding: '10px'
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +22,10 @@ function App() {
         >
           Learn React with FUN :)
         </a>
+        <h2 style={dateStyle}>Today : { new Date().toDateString() }</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, itaque?</p>
+        <p>Simple math : {2+4*4}</p>
+
       </header>
     </div>
   );
