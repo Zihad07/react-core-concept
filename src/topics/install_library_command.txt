@@ -1,0 +1,9 @@
+bootstrap-4 install
+-------------------
+nmp i bootstrap@4.1.1
+-----------------
+Font awsome 
+npm i font-awsome@4.7.0
+---------------------
+You can also install oneway
+npm i bootstrap@4.1.1 font-awsome@4.7.0
