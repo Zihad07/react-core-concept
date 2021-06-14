@@ -9,6 +9,7 @@ class Counter extends Component {
   render(){
     // const today = new Date().toDateString();
     // console.log("props :  ", this.props);
+    console.log('Counter-render');
     return (
       <div className="p-4">
         <h4>Counter# {this.props.counters.id}</h4>

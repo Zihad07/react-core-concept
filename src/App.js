@@ -12,6 +12,17 @@ class App extends Component{
       ]
   }
 
+//   it called once when component create
+  constructor( props ){
+      super( props );
+      console.log('App-constructor', this.props);
+  }
+
+  componentDidMount() {
+    //   ajax call
+    console.log('app-mount');
+  }
+
   handleDelete = (id )=> {
       console.log('the handle delete.',id);
       const  counters  = this.state.counters.filter( c=> c.id !== id);
@@ -36,7 +47,9 @@ class App extends Component{
       this.setState({counters});
 
   }
-  render() {    return(
+  render() {    
+    console.log('App-render');  
+    return(
       
       <React.Fragment>
         <NavBar totalCounter={ this.state.counters }>/</NavBar>
@@ -46,7 +59,7 @@ class App extends Component{
       </React.Fragment>
     );
   }
-}
+} 
 export default App;
 
 
