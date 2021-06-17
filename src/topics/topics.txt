@@ -4,3 +4,8 @@ Important topics
 02.Component
     -create Component
     -pass Out By Props
+React Phase
+    -constructor(props) { super(props) }    
+    -componentDidMount()    
+    -componentDidUpdate()    
+    -componentWillUnmount()    

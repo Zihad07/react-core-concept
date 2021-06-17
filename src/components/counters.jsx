@@ -3,7 +3,9 @@ import Counter from "./counter";
 
 class Counters extends Component {
 
-
+    componentDidMount(){
+        console.log('Counter-Mount');
+    }
     render(){
         console.log('Counters-render');  
         const { onReset, counters, onDelete, onIncrement } = this.props;

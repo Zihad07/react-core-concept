@@ -4,7 +4,17 @@ class Counter extends Component {
   
 
 
+  componentDidUpdate(prevProps, prevState){
+    console.log('prevProps : ', prevProps);
+    console.log('prevState : ', prevState);
+    if(prevProps.counters.value !== this.props.counters.value) {
+      // Make Ajax call
+    }
+  }
 
+  componentWillUnmount() {
+    console.log('counter-unmount');
+  }
 
   render(){
     // const today = new Date().toDateString();
@@ -13,10 +23,17 @@ class Counter extends Component {
     return (
       <div className="p-4">
         <h4>Counter# {this.props.counters.id}</h4>
-        <span className={ this.getBadgeClass() }>{ this.formatCount() }</span> 
-        <button className="btn btn-sm btn-secondary mr-2" onClick={ ()=> this.props.onIncrement(this.props.counters) }>Increment</button>
-        <button className="btn btn-sm btn-info mr-2" onClick={()=> this.props.onIncrement(this.props.counters, true)}>Decrement</button>
-        <button className="btn btn-sm btn-danger mx-2" onClick={ ()=> this.props.onDelete(this.props.counters.id)}>Delete</button>
+        <div className="row">
+          <div className="col-1">
+            <span className={ this.getBadgeClass() }>{ this.formatCount() }</span> 
+          </div>
+          <div className="col">
+            <button className="btn btn-sm btn-secondary mr-2" onClick={ ()=> this.props.onIncrement(this.props.counters) }> + </button>
+            <button className= "btn btn-sm btn-danger mr-2" disabled={this.buttonDisable()} onClick={()=> this.props.onIncrement(this.props.counters, true)}> - </button>
+            <button className="btn btn-sm btn-danger" onClick={ ()=> this.props.onDelete(this.props.counters.id)}>Delete</button>
+
+          </div>
+        </div>
        
       </div>
     );
@@ -25,7 +42,7 @@ class Counter extends Component {
   
 
   getBadgeClass = () => {
-    let classes = "mr-4 badge badge-";
+    let classes = "badge badge-";
     classes += (this.props.counters.value === 0) ? "warning" : "primary";
     return classes;
   }
@@ -33,6 +50,11 @@ class Counter extends Component {
   formatCount() {
     const { value } = this.props.counters;
     return value === 0 ? 'Zero' : value;
+  }
+
+  buttonDisable() {
+    const { value } = this.props.counters;
+    return value === 0 ? "disabled": '';
   }
 
   rederTag() {
